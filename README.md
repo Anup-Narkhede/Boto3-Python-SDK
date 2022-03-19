@@ -76,16 +76,25 @@ Boto3 Concepts
 
 The core conecepts of boto3:
     Session
+    
     Resource
+    
     Client
+    
     Meta
+    
     Collections
+    
     Waiters
+    
     Paginators
 
 #Session:
+
 	--> It is an AWS Management Console in our terms
+	
 	--> stores configuration information (primary credentials)
+	
 	--> allows us to create service clients and resources
 
 Can create any no of sessions in one python boto3 script:
@@ -98,9 +107,13 @@ aws_man_con_dev=boto3.session.Session(profile_name="ec2_developer")
 ```
 
 #Resource and Client
+
     --> We can create particular AWS Service Console like iam console, ec2 console, dynamodb console,...
+    
     --> Resource is higher level object-oriented service access and it is available for some of the aws services(you can do . operations and not all operations of services are available)
+    
     --> Client is low-level service access (in client output is dictonary in each and every step) all operations of service is available you can use either client or resources from your session object to create service console
+    
 
 ```js
 import boto3
@@ -114,14 +127,16 @@ iam_con_cli=aws_man_con.client(service_name="iam",region_name="ap-south-1")
  The dir() function returns all properties and methods of the specified object, without the values.
 
  Syntax: 
+ 
  ```dir(object)```
 
- eg.
+eg.
+```js
  aws_man_con=boto3.session.Session(profile_name="default")
  dir(aws_man_con)
 
  print(aws_man_con.get_available_resouces())
-
+```
 
  -----------------------------------------------
 
@@ -162,12 +177,12 @@ _____________________________________________________
 Boto3 Session Concept:
 There are 2 Types of Sessions:
 
-    * Custom Session
+    1. Custom Session
     
         aws_man_con=boto3.session.Session(profile_name="default")
         iam_con_re=aws_man_con.resource("iam")
 
-    * Default Session(official documentation completely based on default session)
+    2. Default Session(official documentation completely based on default session)
     
     https://boto3.amazonaws.com/v1/documentation/api/latest/index.html
         iam_con_re=boto3.resource("iam")
