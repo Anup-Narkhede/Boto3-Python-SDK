@@ -3,7 +3,9 @@
 
 ###########################################################################
 -Boto3 is the name of the Python SDK for AWS.
+
 -Boto3 allws us to directly create, update, and delete AWS services from our Python scripts.
+
 -Boto3 is built on the top botocore module.
 
 installing boto3(python version 3)
@@ -30,11 +32,15 @@ Access key & Secret access keys are stored in .aws/credentials
 
 Steps to see/list iam users:
 ==================================
+
 1. Get AWS management console
 2. Get IAM console
     options: Users, Groups, role,..
+    
 ====================================
+```js
 //create iam.py file  --> vi iam.py
+
 import boto3
 aws_man_con=boto3.session.Session(profile_name="default")  #getting aws management console
 iam_con=aws_man_con.resource('iam') #getting service console ('s3'),('ec2'),('iam'),etc
@@ -42,20 +48,29 @@ iam_con=aws_man_con.resource('iam') #getting service console ('s3'),('ec2'),('ia
 for each_user in iam_con.users.all():    #options: users/groups/role
 	print(each_user.name)                #printing all users
 
-//run iam.py file --> python iam.py
+//run iam.py file --> python iam.py```
+
 =================================
+
 list all s3 buckets
+
 =================================
+```js
+
 import boto3
 aws_man_con=boto3.session.Session(profile_name="default")
 s3_con=aws_man_con.resource('s3')
 
 for each_bucket in s3_con.buckets.all():
 	print(each_bucket.name)
-
+	
+```
 =================================
+
 Boto3 Concepts
+
 -----------------------------------
+
 The core conecepts of boto3:
     Session
     Resource
