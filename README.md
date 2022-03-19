@@ -48,13 +48,14 @@ iam_con=aws_man_con.resource('iam') #getting service console ('s3'),('ec2'),('ia
 for each_user in iam_con.users.all():    #options: users/groups/role
 	print(each_user.name)                #printing all users
 
-//run iam.py file --> python iam.py```
+//run iam.py file --> python iam.py ```
 
 =================================
 
 list all s3 buckets
 
 =================================
+
 ```js
 
 import boto3
@@ -161,10 +162,12 @@ _____________________________________________________
 Boto3 Session Concept:
 There are 2 Types of Sessions:
     * Custom Session
+    
         aws_man_con=boto3.session.Session(profile_name="default")
         iam_con_re=aws_man_con.resource("iam")
 
     * Default Session(official documentation completely based on default session)
+    
     https://boto3.amazonaws.com/v1/documentation/api/latest/index.html
         iam_con_re=boto3.resource("iam")
 
@@ -172,6 +175,7 @@ ___________________________________________________________________
 
 Dealing with client
 
+```js
 import boto3
 aws_man_con=boto3.session.Session(profile_name="default")
 iam_con=aws_man_con.client(service_name="iam")
@@ -179,10 +183,13 @@ iam_con=aws_man_con.client(service_name="iam")
 response=iam_con.list_users()
 print(response)
 
+```
+
 
 --------------------------------------------
 list all ec2  instance IDs
 ___________________________________________________________
+```js
 import boto3
 aws_man_con=boto3.session.Session(profile_name="default")
 ec2_con=aws_man_con.client("ec2")
@@ -193,10 +200,13 @@ for each in response['Reservations']:
     for i in each['Instances']:
         print(i['ImageId'],i['Monitoring'])
     print('======================')
+    
+```
 
 -----------------------------------------------------------
 list all s3 buckets Name
 ____________________________________________________________
+```js
 import boto3
 aws_man_con=boto3.session.Session(profile_name="default")
 s3_con=aws_man_con.client("s3")
@@ -206,5 +216,7 @@ response=s3_con.list_buckets()
 for each_bucket in response['Buckets']:
     print(each_bucket["Name"])
     print("==========================")
+
+```
 
 
