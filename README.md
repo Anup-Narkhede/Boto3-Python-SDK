@@ -2,6 +2,7 @@
 
 
 ###########################################################################
+
 -Boto3 is the name of the Python SDK for AWS.
 
 -Boto3 allws us to directly create, update, and delete AWS services from our Python scripts.
@@ -9,8 +10,7 @@
 -Boto3 is built on the top botocore module.
 
 installing boto3(python version 3)
-
-pip3 install boto3
+```pip3 install boto3```
 
 
 --------------------
@@ -48,7 +48,9 @@ iam_con=aws_man_con.resource('iam') #getting service console ('s3'),('ec2'),('ia
 for each_user in iam_con.users.all():    #options: users/groups/role
 	print(each_user.name)                #printing all users
 
-//run iam.py file --> python iam.py ```
+//run iam.py file --> python iam.py 
+
+```
 
 =================================
 
@@ -98,9 +100,7 @@ aws_man_con_dev=boto3.session.Session(profile_name="ec2_developer")
 #Resource and Client
     --> We can create particular AWS Service Console like iam console, ec2 console, dynamodb console,...
     --> Resource is higher level object-oriented service access and it is available for some of the aws services(you can do . operations and not all operations of services are available)
-    --> Client is low-level service access (in client output is dictonary in each and every step) all operations of service is available
-
-you can use either client or resources from your session object to create service console
+    --> Client is low-level service access (in client output is dictonary in each and every step) all operations of service is available you can use either client or resources from your session object to create service console
 
 ```js
 import boto3
@@ -114,7 +114,7 @@ iam_con_cli=aws_man_con.client(service_name="iam",region_name="ap-south-1")
  The dir() function returns all properties and methods of the specified object, without the values.
 
  Syntax: 
- dir(object)
+ ```dir(object)```
 
  eg.
  aws_man_con=boto3.session.Session(profile_name="default")
@@ -161,6 +161,7 @@ _____________________________________________________
 
 Boto3 Session Concept:
 There are 2 Types of Sessions:
+
     * Custom Session
     
         aws_man_con=boto3.session.Session(profile_name="default")
@@ -186,9 +187,10 @@ print(response)
 ```
 
 
---------------------------------------------
+-----------------------------------------------------------
 list all ec2  instance IDs
 ___________________________________________________________
+
 ```js
 import boto3
 aws_man_con=boto3.session.Session(profile_name="default")
@@ -203,9 +205,10 @@ for each in response['Reservations']:
     
 ```
 
------------------------------------------------------------
+------------------------------------------------------------
 list all s3 buckets Name
 ____________________________________________________________
+
 ```js
 import boto3
 aws_man_con=boto3.session.Session(profile_name="default")
